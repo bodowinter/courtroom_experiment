@@ -1,0 +1,1 @@
+condition: [P,D,J]	plaintiff	confidence: 2; no bias; no jury experience; 8592;

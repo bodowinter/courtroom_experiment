@@ -1,0 +1,1 @@
+condition: [J,P,D]	defendant	confidence: 6; prosecutor bias; no jury experience; 89310;

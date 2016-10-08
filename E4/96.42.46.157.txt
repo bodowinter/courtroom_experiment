@@ -1,0 +1,1 @@
+condition: [J,P,D]	defandent	confidence: 6; prosecutor bias; no jury experience; 810104;

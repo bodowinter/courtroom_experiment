@@ -1,0 +1,2 @@
+condition: [D,P,J]	defendant	confidence: 7; prosecutor bias; yes jury experience; 6137;
+condition: [J,D,P]	plaintiff	confidence: 5; prosecutor bias; yes jury experience; 41032;

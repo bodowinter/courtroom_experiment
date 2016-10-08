@@ -1,0 +1,3464 @@
+head(E1)
+head(E2)
+head(E3)
+head(E4)
+head(E1)
+head(E2)
+head(E3)
+head(E4)
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))
+head(E3.tab)
+head(E3)
+E3$defendant_position
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv")#
+E2 = read.csv("E2.csv")#
+E3 = read.csv("E3.csv")#
+E4 = read.csv("E4.csv")#
+E5A = read.csv("E5A.csv")#
+E5B = read.csv("E5B.csv")#
+E6A = read.csv("E6A.csv")#
+E6B = read.csv("E6B.csv")#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120
+E1.tab = table(E1$distance,E1$choice)
+E1.tab <- table(E1$distance,E1$choice)
+(E1.tab <- table(E1$distance,E1$choice))
+(E2.tab <- table(E2$distance,E2$choice))
+(E3.tab <- table(E3$distance,E3$choice))
+(E4.tab <- table(E4$distance,E4$choice))
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv")#
+E2 = read.csv("E2.csv")#
+E3 = read.csv("E3.csv")#
+E4 = read.csv("E4.csv")#
+E5A = read.csv("E5A.csv")#
+E5B = read.csv("E5B.csv")#
+E6A = read.csv("E6A.csv")#
+E6B = read.csv("E6B.csv")#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120#
+#
+## Make summary tables:#
+#
+(E1.tab <- table(E1$distance,E1$choice))#
+(E2.tab <- table(E2$distance,E2$choice))#
+(E3.tab <- table(E3$distance,E3$choice))#
+(E4.tab <- table(E4$distance,E4$choice))#
+(E5A.tab <- table(E5A$distance,E5A$choice))#
+(E5B.tab <- table(E5B$distance,E5B$choice))#
+(E6A.tab <- table(E6A$distance,E6A$choice))#
+(E6B.tab <- table(E6B$distance,E6B$choice))
+chisq.tst(E1.tab)
+chisq.test(E1.tab)
+chisq.test(E2.tab)
+head(E1)
+E1.tab
+E4.tab
+chisq.test(E4.tab)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/E2_data/")
+test = load_files(list.files())
+test
+head(E1)
+head(test)
+mean(E1$confidence)
+mean(test$confidence)
+mean(test$confidence,na.rm=T)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)
+head(E1)
+E1$distance = "near"
+head(E1)
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"
+head(E1)
+table(E1$distance,E1$choice)
+head(E1)
+head(test)
+table(test$V3,test$defendant)
+xtabs(~test$V3+test$defendant)
+xtabs(~test$V3+test$V1)
+xtabs(~test$V3+test$V2)
+table(E1$distance,E1$choice)
+19+10
+8+12
+test$V5
+test
+head(test)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())
+head(E1)
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"
+table(E1$distance,E1$choice)
+chisq.test(table(E1$distance,E1$choice))
+nrow(E1)
+nrow(test)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+E1$IP = list.files()
+head(E1)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+E1$Filename = list.files()
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+E1$Filename = list.files()#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+E2$Filename = list.files()#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+E3$Filename = list.files()#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+E4$Filename = list.files()#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+E5A$Filename = list.files()#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+E5B$Filename = list.files()#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+E6A$Filename = list.files()#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+E6B$Filename = list.files()
+## Bodo Winter#
+## March 26, 2014; added E3 preprocessing: April 27, 2014#
+## Added E4 preprocessing: August 14, 2014#
+## Josh's Courtroom preprocessing E1-E3#
+#
+## Set working directory:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/")#
+#
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("E1_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E1 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E1 = rbind(E1,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+## Load in IPs:#
+#
+IPs = filenames[!(filenames %in% exclude)]#
+E1$IP = IPs#
+E1$IP = sapply(E1$IP,FUN=function(x)strsplit(x,".txt")[[1]])
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")
+E1 = E1[,-c(1,4,7,9,10)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience","ID","IP")
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Get rid of spelling error ("defendant" vs. "defandent")#
+#
+E1$choice = as.character(E1$choice)#
+E1[E1$choice == "defandent",]$choice = "defendant"#
+E1$choice = as.factor(E1$choice)
+E1$jury_position = "right"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[J,D,P]",]$jury_position = "left"#
+E1$defendant_position = "right"#
+E1[E1$condition == "[J,D,P]" | E1$condition == "[D,P,J]",]$defendant_position = "left"
+## Code whether defendant is far or close#
+#
+E1$defendant_distance = "close"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"#
+#
+## "Choose defendant" variable with 1 == "chose defendant"#
+#
+E1$chose_defendant = rep(0,nrow(E1))#
+E1[E1$choice == "defendant",]$chose_defendant = 1
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")
+head(E1)
+head(E2)
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))
+chisq.test(E1.tab)
+chisq.test(E2.tab)
+chisq.test(E3.tab)
+chisq.test(E4.tab)
+chisq.test(E2.tab)
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))#
+#
+## Simple summary table analysis, disregarding jury orientation (left/right):#
+#
+chisq.test(E1.tab)#
+chisq.test(E2.tab)
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))#
+#
+## Simple summary table analysis, disregarding jury orientation (left/right):#
+#
+chisq.test(E1.tab)#
+chisq.test(E2.tab)#
+chisq.test(E3.tab)#
+chisq.test(E4.tab)
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))#
+#
+## Simple summary table analysis, disregarding jury orientation (left/right):#
+#
+chisq.test(E1.tab)#
+chisq.test(E2.tab)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_plaintiff",]$choice = "plaintiff"#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience != "no jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience != "no_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience != "no_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience != "no_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience != "no_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:#
+#
+E1 = E1[,c(5,1,2,3,4,6)]#
+E2 = E2[,c(5,1,2,3,4,6)]#
+E4 = E4[,c(5,1,2,3,4,6)]#
+E5A = E5A[,c(3,4,5,6,7,1,2)]#
+E5B = E5B[,c(3,4,5,6,7,1,2)]#
+E6A = E6A[,c(3,4,5,6,7,1,2)]#
+E6B = E6B[,c(3,4,5,6,7,1,2)]#
+#
+## Export data frames:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+write.table(E1,"E1.csv",sep=",",row.names=F)#
+write.table(E2,"E2.csv",sep=",",row.names=F)#
+write.table(E3,"E3.csv",sep=",",row.names=F)#
+write.table(E4,"E4.csv",sep=",",row.names=F)#
+write.table(E5A,"E5A.csv",sep=",",row.names=F)#
+write.table(E5B,"E5B.csv",sep=",",row.names=F)#
+write.table(E6A,"E6A.csv",sep=",",row.names=F)#
+write.table(E6B,"E6B.csv",sep=",",row.names=F)
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv")#
+E2 = read.csv("E2.csv")#
+E3 = read.csv("E3.csv")#
+E4 = read.csv("E4.csv")#
+E5A = read.csv("E5A.csv")#
+E5B = read.csv("E5B.csv")#
+E6A = read.csv("E6A.csv")#
+E6B = read.csv("E6B.csv")#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120
+head(E1)
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience + room_orientation,E1,family="binomial"))
+summary(E1.mdl <- glm(choice ~ distance*room_orientation + confidence + experience,E1,family="binomial"))
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E2,family="binomial"))
+summary(E3.mdl <- glm(choice ~ distance + confidence + experience,E3,family="binomial"))
+head(E3)
+E3$choice
+E2$choice
+E4$choice
+E5A$choice
+E6A$choice
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor,]$choice = "plaintiff"#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience != "no jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience != "no_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience != "no_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience != "no_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience != "no_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:#
+#
+E1 = E1[,c(5,1,2,3,4,6)]#
+E2 = E2[,c(5,1,2,3,4,6)]#
+E4 = E4[,c(5,1,2,3,4,6)]#
+E5A = E5A[,c(3,4,5,6,7,1,2)]#
+E5B = E5B[,c(3,4,5,6,7,1,2)]#
+E6A = E6A[,c(3,4,5,6,7,1,2)]#
+E6B = E6B[,c(3,4,5,6,7,1,2)]#
+#
+## Export data frames:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+write.table(E1,"E1.csv",sep=",",row.names=F)#
+write.table(E2,"E2.csv",sep=",",row.names=F)#
+write.table(E3,"E3.csv",sep=",",row.names=F)#
+write.table(E4,"E4.csv",sep=",",row.names=F)#
+write.table(E5A,"E5A.csv",sep=",",row.names=F)#
+write.table(E5B,"E5B.csv",sep=",",row.names=F)#
+write.table(E6A,"E6A.csv",sep=",",row.names=F)#
+write.table(E6B,"E6B.csv",sep=",",row.names=F)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience != "no jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience != "no_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience != "no_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience != "no_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience != "no_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:#
+#
+E1 = E1[,c(5,1,2,3,4,6)]#
+E2 = E2[,c(5,1,2,3,4,6)]#
+E4 = E4[,c(5,1,2,3,4,6)]#
+E5A = E5A[,c(3,4,5,6,7,1,2)]#
+E5B = E5B[,c(3,4,5,6,7,1,2)]#
+E6A = E6A[,c(3,4,5,6,7,1,2)]#
+E6B = E6B[,c(3,4,5,6,7,1,2)]#
+#
+## Export data frames:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+write.table(E1,"E1.csv",sep=",",row.names=F)#
+write.table(E2,"E2.csv",sep=",",row.names=F)#
+write.table(E3,"E3.csv",sep=",",row.names=F)#
+write.table(E4,"E4.csv",sep=",",row.names=F)#
+write.table(E5A,"E5A.csv",sep=",",row.names=F)#
+write.table(E5B,"E5B.csv",sep=",",row.names=F)#
+write.table(E6A,"E6A.csv",sep=",",row.names=F)#
+write.table(E6B,"E6B.csv",sep=",",row.names=F)
+head(E5A)
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))#
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))#
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))#
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+head(E5A)
+head(E6A)
+E5A$language_perspective
+E5A$language_evidence
+E5A$distance
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)
+head(E6A)
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")
+head(E6A)
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]
+head(E6A)
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"
+E6B$choice
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+# E3#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E3$choice = as.factor(E3$choice)#
+# E4#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E4$choice = as.factor(E4$choice)#
+# E5A#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5A$choice = as.factor(E5A$choice)#
+# E5B#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.factor(E5B$choice)#
+# E6A#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6A$choice = as.factor(E6A$choice)#
+# E6B#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.factor(E6B$choice)
+E6B$choice
+E6A$choice
+E5B$choice
+E5A$choice
+E4$choice
+E3$choice
+E2$choice
+E1$choice
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"
+E1$distance
+E2$distance
+E3$distance
+E4$distance
+E5$distance
+E5A$distance
+head(E6A)
+E6A[,8]
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+# E3#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E3$choice = as.factor(E3$choice)#
+# E4#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E4$choice = as.factor(E4$choice)#
+# E5A#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5A$choice = as.factor(E5A$choice)#
+# E5B#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.factor(E5B$choice)#
+# E6A#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6A$choice = as.factor(E6A$choice)#
+# E6B#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.factor(E6B$choice)#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience != "no jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience != "no_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience != "no_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience != "no_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience != "no_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:
+head(E5A)
+head(E6A)
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+# E3#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E3$choice = as.factor(E3$choice)#
+# E4#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E4$choice = as.factor(E4$choice)#
+# E5A#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5A$choice = as.factor(E5A$choice)#
+# E5B#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.factor(E5B$choice)#
+# E6A#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6A$choice = as.factor(E6A$choice)#
+# E6B#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.factor(E6B$choice)#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience != "no jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience != "no_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience != "no_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience != "no_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience != "no_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:#
+#
+E1 = E1[,c(5,1,2,3,4,6)]#
+E2 = E2[,c(5,1,2,3,4,6)]#
+E4 = E4[,c(5,1,2,3,4,6)]#
+E5A = E5A[,c(3,4,5,6,7,1,2)]#
+E5B = E5B[,c(3,4,5,6,7,1,2)]#
+E6A = E6A[,c(3,5,6,7,1,2,4,8)]#
+E6B = E6B[,c(3,5,6,7,1,2,4,8)]
+head(E6A)
+## Export data frames:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+write.table(E1,"E1.csv",sep=",",row.names=F)#
+write.table(E2,"E2.csv",sep=",",row.names=F)#
+write.table(E3,"E3.csv",sep=",",row.names=F)#
+write.table(E4,"E4.csv",sep=",",row.names=F)#
+write.table(E5A,"E5A.csv",sep=",",row.names=F)#
+write.table(E5B,"E5B.csv",sep=",",row.names=F)#
+write.table(E6A,"E6A.csv",sep=",",row.names=F)#
+write.table(E6B,"E6B.csv",sep=",",row.names=F)
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))#
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))#
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))#
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+E6B$confidence
+E6B$distance
+?read.csv
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv",stringsAsFactors=T)#
+E2 = read.csv("E2.csv",stringsAsFactors=T)#
+E3 = read.csv("E3.csv",stringsAsFactors=T)#
+E4 = read.csv("E4.csv",stringsAsFactors=T)#
+E5A = read.csv("E5A.csv",stringsAsFactors=T)#
+E5B = read.csv("E5B.csv",stringsAsFactors=T)#
+E6A = read.csv("E6A.csv",stringsAsFactors=T)#
+E6B = read.csv("E6B.csv",stringsAsFactors=T)
+E6B$distance
+(E1.tab <- table(E1$distance,E1$choice))#
+(E2.tab <- table(E2$distance,E2$choice))#
+(E3.tab <- table(E3$distance,E3$choice))#
+(E4.tab <- table(E4$distance,E4$choice))#
+(E5A.tab <- table(E5A$distance,E5A$choice))#
+(E5B.tab <- table(E5B$distance,E5B$choice))#
+(E6A.tab <- table(E6A$distance,E6A$choice))#
+(E6B.tab <- table(E6B$distance,E6B$choice))
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E2,family="binomial"))
+summary(E3.mdl <- glm(choice ~ distance + confidence + experience,E3,family="binomial"))
+summary(E4.mdl <- glm(choice ~ distance + confidence + experience,E4,family="binomial"))
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E2,family="binomial"))
+summary(E3.mdl <- glm(choice ~ distance + confidence + experience,E3,family="binomial"))
+E3$choice
+E3$distance
+E3$experience
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+# E3#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E3$choice = as.factor(E3$choice)#
+# E4#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E4$choice = as.factor(E4$choice)#
+# E5A#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5A$choice = as.factor(E5A$choice)#
+# E5B#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.factor(E5B$choice)#
+# E6A#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6A$choice = as.factor(E6A$choice)#
+# E6B#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.factor(E6B$choice)#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"
+head(E3)
+E3$experience
+E5A$experience
+E5B$experience
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1$confidence = rid_semi(E1$confidence)#
+E2$confidence = rid_semi(E2$confidence)#
+E4$confidence = rid_semi(E4$confidence)#
+#
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+E2$distance = "near"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[R,P,D]",]$distance = "far"#
+E4$distance = "near"#
+E4[E4$condition == "[J,P,D]" | E4$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_orientation = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+E2$room_orientation = "jury_right"#
+E2[E2$condition == "[L,P,D]" | E2$condition == "[L,D,P]",]$room_orientation = "jury_left"#
+E4$room_orientation = "jury_left"#
+E4[E4$condition == "[P,D,J]" | E4$condition == "[D,P,J]",]$room_orientation = "jury_right"#
+#
+## Get rid of "condition" columns:#
+#
+E1 = E1[,-1]#
+E2 = E2[,-1]#
+E4 = E4[,-1]#
+#
+## Name "choice" columns consistently throughout:#
+#
+# E3#
+E3$choice = as.character(E3$choice)#
+E3[E3$choice=="picked_defendant",]$choice = "defendant"#
+E3[E3$choice=="picked_prosecutor",]$choice = "plaintiff"#
+E3$choice = as.factor(E3$choice)#
+# E4#
+E4$choice = as.character(E4$choice)#
+E4[E4$choice == "defandent",]$choice = "defendant"#
+E4$choice = as.factor(E4$choice)#
+# E5A#
+E5A$choice = as.character(E5A$choice)#
+E5A[E5A$choice == "picked_defendant",]$choice = "defendant"#
+E5A[E5A$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5A$choice = as.factor(E5A$choice)#
+# E5B#
+E5B$choice = as.character(E5B$choice)#
+E5B[E5B$choice == "picked_defendant",]$choice = "defendant"#
+E5B[E5B$choice == "picked_plaintiff",]$choice = "plaintiff"#
+E5B$choice = as.factor(E5B$choice)#
+# E6A#
+E6A$choice = as.character(E6A$choice)#
+E6A[E6A$choice == "picked_defendant",]$choice = "defendant"#
+E6A[E6A$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6A$choice = as.factor(E6A$choice)#
+# E6B#
+E6B$choice = as.character(E6B$choice)#
+E6B[E6B$choice == "picked_defendant",]$choice = "defendant"#
+E6B[E6B$choice == "picked_prosecutor",]$choice = "plaintiff"#
+E6B$choice = as.factor(E6B$choice)#
+#
+## Name "distance" columns consistently throughout:#
+#
+E3$distance = as.character(E3$distance)#
+E3[E3$distance == "defendant_close",]$distance = "near"#
+E3[E3$distance == "prosecutor_close",]$distance = "far"#
+E5A$distance = as.character(E5A$distance)#
+E5A[E5A$distance == "defendant_close",]$distance = "near"#
+E5A[E5A$distance == "prosecutor_close",]$distance = "far"#
+E5B$distance = as.character(E5B$distance)#
+E5B[E5B$distance == "defendant_close",]$distance = "near"#
+E5B[E5B$distance == "prosecutor_close",]$distance = "far"#
+E6A$distance = as.character(E6A$distance)#
+E6A[E6A$distance == "defendant_close",]$distance = "near"#
+E6A[E6A$distance == "defendant_far",]$distance = "far"#
+E6B$distance = as.character(E6B$distance)#
+E6B[E6B$distance == "defendant_close",]$distance = "near"#
+E6B[E6B$distance == "defendant_far",]$distance = "far"#
+#
+## Name "experience" columns consistently throughout:#
+#
+E3$experience = as.character(E3$experience)#
+E3[E3$experience == "no jury experience",]$experience = "no"#
+E3[E3$experience == "yes jury experience",]$experience = "yes"#
+E5A$experience = as.character(E5A$experience)#
+E5A[E5A$experience == "no_jury",]$experience = "no"#
+E5A[E5A$experience == "yes_jury",]$experience = "yes"#
+E5B$experience = as.character(E5B$experience)#
+E5B[E5B$experience == "no_jury",]$experience = "no"#
+E5B[E5B$experience == "yes_jury",]$experience = "yes"#
+E6A$experience = as.character(E6A$experience)#
+E6A[E6A$experience == "no_jury",]$experience = "no"#
+E6A[E6A$experience == "yes_jury",]$experience = "yes"#
+E6B$experience = as.character(E6B$experience)#
+E6B[E6B$experience == "no_jury",]$experience = "no"#
+E6B[E6B$experience == "yes_jury",]$experience = "yes"#
+#
+## Name "bias" column consistently throughout:#
+#
+E3$bias = as.character(E3$bias)#
+E3[E3$bias == " no bias",]$bias = "no"#
+E3[E3$bias == " prosecutor bias",]$bias = "prosecutor"#
+E3[E3$bias == " defendant bias",]$bias = "defendant"#
+E5A$bias = as.character(E5A$bias)#
+E5A[E5A$bias == "no_bias",]$bias = "no"#
+E5A[E5A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5A[E5A$bias == "defendant_bias",]$bias = "defendant"#
+E5B$bias = as.character(E5B$bias)#
+E5B[E5B$bias == "no_bias",]$bias = "no"#
+E5B[E5B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E5B[E5B$bias == "defendant_bias",]$bias = "defendant"#
+E6A$bias = as.character(E6A$bias)#
+E6A[E6A$bias == "no_bias",]$bias = "no"#
+E6A[E6A$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6A[E6A$bias == "defendant_bias",]$bias = "defendant"#
+E6B$bias = as.character(E6B$bias)#
+E6B[E6B$bias == "no_bias",]$bias = "no"#
+E6B[E6B$bias == "prosecutor_bias",]$bias = "prosecutor"#
+E6B[E6B$bias == "defendant_bias",]$bias = "defendant"#
+#
+## Change order of columns:#
+#
+E1 = E1[,c(5,1,2,3,4,6)]#
+E2 = E2[,c(5,1,2,3,4,6)]#
+E4 = E4[,c(5,1,2,3,4,6)]#
+E5A = E5A[,c(3,4,5,6,7,1,2)]#
+E5B = E5B[,c(3,4,5,6,7,1,2)]#
+E6A = E6A[,c(3,5,6,7,1,2,4,8)]#
+E6B = E6B[,c(3,5,6,7,1,2,4,8)]#
+#
+## Export data frames:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+write.table(E1,"E1.csv",sep=",",row.names=F)#
+write.table(E2,"E2.csv",sep=",",row.names=F)#
+write.table(E3,"E3.csv",sep=",",row.names=F)#
+write.table(E4,"E4.csv",sep=",",row.names=F)#
+write.table(E5A,"E5A.csv",sep=",",row.names=F)#
+write.table(E5B,"E5B.csv",sep=",",row.names=F)#
+write.table(E6A,"E6A.csv",sep=",",row.names=F)#
+write.table(E6B,"E6B.csv",sep=",",row.names=F)
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv",stringsAsFactors=T)#
+E2 = read.csv("E2.csv",stringsAsFactors=T)#
+E3 = read.csv("E3.csv",stringsAsFactors=T)#
+E4 = read.csv("E4.csv",stringsAsFactors=T)#
+E5A = read.csv("E5A.csv",stringsAsFactors=T)#
+E5B = read.csv("E5B.csv",stringsAsFactors=T)#
+E6A = read.csv("E6A.csv",stringsAsFactors=T)#
+E6B = read.csv("E6B.csv",stringsAsFactors=T)#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120#
+#
+## Make summary tables:#
+#
+(E1.tab <- table(E1$distance,E1$choice))#
+(E2.tab <- table(E2$distance,E2$choice))#
+(E3.tab <- table(E3$distance,E3$choice))#
+(E4.tab <- table(E4$distance,E4$choice))#
+(E5A.tab <- table(E5A$distance,E5A$choice))#
+(E5B.tab <- table(E5B$distance,E5B$choice))#
+(E6A.tab <- table(E6A$distance,E6A$choice))#
+(E6B.tab <- table(E6B$distance,E6B$choice))#
+## Analysis:#
+#
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))#
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E2,family="binomial"))#
+summary(E3.mdl <- glm(choice ~ distance + confidence + experience,E3,family="binomial"))#
+summary(E4.mdl <- glm(choice ~ distance + confidence + experience,E4,family="binomial"))
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))
+E1$distance = Contr.sum(E1$distance)
+apropos("sum")
+E1$distance = contr.sum(E1$distance)
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))		## odd man out
+head(E1)
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv",stringsAsFactors=T)#
+E2 = read.csv("E2.csv",stringsAsFactors=T)#
+E3 = read.csv("E3.csv",stringsAsFactors=T)#
+E4 = read.csv("E4.csv",stringsAsFactors=T)#
+E5A = read.csv("E5A.csv",stringsAsFactors=T)#
+E5B = read.csv("E5B.csv",stringsAsFactors=T)#
+E6A = read.csv("E6A.csv",stringsAsFactors=T)#
+E6B = read.csv("E6B.csv",stringsAsFactors=T)#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120#
+#
+## Make summary tables:#
+#
+(E1.tab <- table(E1$distance,E1$choice))#
+(E2.tab <- table(E2$distance,E2$choice))#
+(E3.tab <- table(E3$distance,E3$choice))#
+(E4.tab <- table(E4$distance,E4$choice))#
+(E5A.tab <- table(E5A$distance,E5A$choice))#
+(E5B.tab <- table(E5B$distance,E5B$choice))#
+(E6A.tab <- table(E6A$distance,E6A$choice))#
+(E6B.tab <- table(E6B$distance,E6B$choice))
+head(E1$distance)
+head(E1)
+contr.sum(E1$distance)
+contr.sum(2)
+E1$distance = contr.sum(2)
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))		## odd man out
+## Bodo Winter#
+## Created: August 31, 2014#
+## Analysis of Courtroom Experiment#
+#
+## Load in data:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/all_data/")#
+E1 = read.csv("E1.csv",stringsAsFactors=T)#
+E2 = read.csv("E2.csv",stringsAsFactors=T)#
+E3 = read.csv("E3.csv",stringsAsFactors=T)#
+E4 = read.csv("E4.csv",stringsAsFactors=T)#
+E5A = read.csv("E5A.csv",stringsAsFactors=T)#
+E5B = read.csv("E5B.csv",stringsAsFactors=T)#
+E6A = read.csv("E6A.csv",stringsAsFactors=T)#
+E6B = read.csv("E6B.csv",stringsAsFactors=T)#
+#
+## Description of experiments:#
+#
+## E1 = 3D Version with no controls for font size#
+## E2 = 3D Version with grey tables#
+## E3 = 3D Version with orange lables#
+## E4 = 2D Version#
+## E5A = 3D Version with language#
+## E5B = 2D Version with language#
+## E6A = 3D Version with language#
+## E6B = 2D Version with language#
+#
+## How much data per experiment:#
+#
+nrow(E1)		# 95#
+nrow(E2)		# 114#
+nrow(E3)		# 117#
+nrow(E4)		# 98#
+nrow(E5A)	# 122#
+nrow(E5B)	# 122#
+nrow(E6A)	# 120#
+nrow(E6B)	# 120#
+#
+## Make summary tables:#
+#
+(E1.tab <- table(E1$distance,E1$choice))#
+(E2.tab <- table(E2$distance,E2$choice))#
+(E3.tab <- table(E3$distance,E3$choice))#
+(E4.tab <- table(E4$distance,E4$choice))#
+(E5A.tab <- table(E5A$distance,E5A$choice))#
+(E5B.tab <- table(E5B$distance,E5B$choice))#
+(E6A.tab <- table(E6A$distance,E6A$choice))#
+(E6B.tab <- table(E6B$distance,E6B$choice))#
+#
+## Analysis:#
+#
+summary(E1.mdl <- glm(choice ~ distance + confidence + experience,E1,family="binomial"))		## odd man out#
+summary(E2.mdl <- glm(choice ~ distance + confidence + experience,E2,family="binomial"))#
+summary(E3.mdl <- glm(choice ~ distance + confidence + experience,E3,family="binomial"))#
+summary(E4.mdl <- glm(choice ~ distance + confidence + experience,E4,family="binomial"))#
+summary(E5A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5A,family="binomial"))#
+summary(E5B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E5B,family="binomial"))#
+summary(E6A.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6A,family="binomial"))#
+summary(E6B.mdl <- glm(choice ~ distance + confidence + experience + language_perspective + language_evidence + language_perspective:language_evidence,E6B,family="binomial"))
+## Bodo Winter#
+## September 1, 2014#
+## Analysis of SIMPROX/SOCIALDIST#
+#
+setwd("/Users/teeniematlock/Desktop/research/similarity_is_proximity/social_distance_comparison/")#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}
+E1 = load_files(list.files())
+filenames = list.files()
+xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}
+xdata = c()#
+	for(i in 1:length(filenames)){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+		}
+xdata = c()#
+	for(i in 1:length(filenames)){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}
+i
+filenames[i]
+list.files()
+## Bodo Winter#
+## September 1, 2014#
+## Analysis of SIMPROX/SOCIALDIST#
+#
+setwd("/Users/teeniematlock/Desktop/research/similarity_is_proximity/social_distance_comparison/E1_raw_data/")#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+	return(xdata)#
+	}#
+#
+E1 = load_files(list.files())
+E1
+## Bodo Winter#
+## September 1, 2014#
+## Analysis of SIMPROX/SOCIALDIST#
+#
+setwd("/Users/teeniematlock/Desktop/research/similarity_is_proximity/social_distance_comparison/E1_raw_data/")#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+	return(xdata)#
+	}#
+#
+E1 = load_files(list.files())
+E1
+## Bodo Winter#
+## September 1, 2014#
+## Analysis of SIMPROX/SOCIALDIST#
+#
+setwd("/Users/teeniematlock/Desktop/research/similarity_is_proximity/social_distance_comparison/E1_raw_data/")#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+	return(xdata)#
+	}#
+#
+E1 = load_files(list.files())#
+colnames(E1) = c("distance","condition","rating")
+boxplot(rating ~ distance*condition,E1)
+aov(rating ~ distance*condition)
+aov(rating ~ distance*condition,E1)
+summary(aov(rating ~ distance*condition,E1))
+nrow(E1)
+table(E1$condition)
+boxplot(rating ~ distance*condition,E1)
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/")#
+#
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("E1_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E1 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E1 = rbind(E1,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+## Load in IPs:#
+#
+IPs = filenames[!(filenames %in% exclude)]#
+E1$IP = IPs#
+E1$IP = sapply(E1$IP,FUN=function(x)strsplit(x,".txt")[[1]])#
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience","ID","IP")#
+#
+## Get rid of semicolons:#
+#
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Get rid of spelling error ("defendant" vs. "defandent")#
+#
+E1$choice = as.character(E1$choice)#
+E1[E1$choice == "defandent",]$choice = "defendant"#
+E1$choice = as.factor(E1$choice)#
+#
+## Code conditions so that I can do an ANOVA:#
+#
+E1$jury_position = "right"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[J,D,P]",]$jury_position = "left"#
+E1$defendant_position = "right"#
+E1[E1$condition == "[J,D,P]" | E1$condition == "[D,P,J]",]$defendant_position = "left"#
+#
+## Code whether defendant is far or close#
+#
+E1$defendant_distance = "close"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"#
+#
+## "Choose defendant" variable with 1 == "chose defendant"#
+#
+E1$chose_defendant = rep(0,nrow(E1))#
+E1[E1$choice == "defendant",]$chose_defendant = 1#
+#
+write.table(E1,"/Users/teeniematlock/Desktop/research/josh_jury_courtroom/E1_fulldata.csv",sep=",",row.names=F)#
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury/raw_data/")#
+setwd("E2_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E2 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E2 = rbind(E2,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+## Load in IPs:#
+#
+IPs = filenames[!(filenames %in% exclude)]#
+E2$IP = IPs#
+E2$IP = sapply(E2$IP,FUN=function(x)strsplit(x,".txt")[[1]])#
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E2$V6 = paste(E2$V6,E2$V7,sep=" ")#
+E2$V8 = paste(E2$V8,E2$V9,E2$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E2 = E2[,-c(1,4,7,9,10)]#
+colnames(E2) = c("condition","choice","confidence","bias","experience","ID","IP")#
+#
+## Get rid of semicolons:#
+#
+E2 = as.data.frame(apply(E2,2,FUN=function(x)gsub(";","",x)))#
+#
+## Code conditions so that I can do an ANOVA:#
+#
+E2$room_orientation = "left"#
+E2[E2$condition == "[J,P,D]" | E2$condition == "[D,P,J]",]$room_orientation = "right"#
+E2$defendant_position = "close"#
+E2[E2$condition == "[J,D,P]" | E2$condition == "[J,P,D]",]$defendant_position = "far"#
+#
+## "Choose defendant" variable with 1 == "chose defendant"#
+#
+E2$chose_defendant = rep(0,nrow(E2))#
+E2[E2$choice == "defendant",]$chose_defendant = 1
+head(E2)
+(E2.tab <- table(E2$defendant_position,E2$choice))
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury/raw_data/")#
+setwd("E2_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E2 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E2 = rbind(E2,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+head(E2)
+IPs = filenames[!(filenames %in% exclude)]#
+E2$IP = IPs#
+E2$IP = sapply(E2$IP,FUN=function(x)strsplit(x,".txt")[[1]])#
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E2$V6 = paste(E2$V6,E2$V7,sep=" ")#
+E2$V8 = paste(E2$V8,E2$V9,E2$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E2 = E2[,-c(1,4,7,9,10)]#
+colnames(E2) = c("condition","choice","confidence","bias","experience","ID","IP")
+head(E2)
+E2$choice
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))#
+#########################################################################
+######################## Load in data and append IP#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)
+E1$choice
+head(E1)
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]#
+#
+## Rename columns:#
+#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+colnames(E2) = c("condition","choice","confidence","bias","experience")#
+colnames(E4) = c("condition","choice","confidence","bias","experience")#
+#
+colnames(E3) = c("distance","choice","confidence","bias","experience")#
+colnames(E5A) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E5B) = c("language_perspective","language_evidence","distance","choice","confidence","bias","experience")#
+colnames(E6A) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")#
+colnames(E6B) = c("language_perspective","language_evidence","distance","question_orientation","choice","confidence","bias","experience")
+E1$choice
+E2$choice
+E3$choice
+E4$choice
+## Bodo Winter#
+## March 26, 2014; added E3 preprocessing: April 27, 2014#
+## Added E4 preprocessing: August 14, 2014#
+## Josh's Courtroom preprocessing E1-E3#
+#
+## Set working directory:#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/")#
+#
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("E1_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E1 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E1 = rbind(E1,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+## Load in IPs:#
+#
+IPs = filenames[!(filenames %in% exclude)]#
+E1$IP = IPs#
+E1$IP = sapply(E1$IP,FUN=function(x)strsplit(x,".txt")[[1]])#
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience","ID","IP")#
+#
+## Get rid of semicolons:#
+#
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Get rid of spelling error ("defendant" vs. "defandent")#
+#
+E1$choice = as.character(E1$choice)#
+E1[E1$choice == "defandent",]$choice = "defendant"#
+E1$choice = as.factor(E1$choice)#
+#
+## Code conditions so that I can do an ANOVA:#
+#
+E1$jury_position = "right"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[J,D,P]",]$jury_position = "left"#
+E1$defendant_position = "right"#
+E1[E1$condition == "[J,D,P]" | E1$condition == "[D,P,J]",]$defendant_position = "left"#
+#
+## Code whether defendant is far or close#
+#
+E1$defendant_distance = "close"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"#
+#
+## "Choose defendant" variable with 1 == "chose defendant"#
+#
+E1$chose_defendant = rep(0,nrow(E1))#
+E1[E1$choice == "defendant",]$chose_defendant = 1#
+#
+write.table(E1,"/Users/teeniematlock/Desktop/research/josh_jury_courtroom/E1_fulldata.csv",sep=",",row.names=F)#
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury/raw_data/")#
+setwd("E2_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E2 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E2 = rbind(E2,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+## Load in IPs:#
+#
+IPs = filenames[!(filenames %in% exclude)]#
+E2$IP = IPs#
+E2$IP = sapply(E2$IP,FUN=function(x)strsplit(x,".txt")[[1]])#
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E2$V6 = paste(E2$V6,E2$V7,sep=" ")#
+E2$V8 = paste(E2$V8,E2$V9,E2$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E2 = E2[,-c(1,4,7,9,10)]#
+colnames(E2) = c("condition","choice","confidence","bias","experience","ID","IP")
+E1$choice
+E2$choice
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))
+## Bodo Winter#
+## Created: August 23, 2014; Edited & Finished: August 31, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Function that gets rid of semicolons:#
+#
+rid_semi = function(x)as.numeric(gsub(";","",x))
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+head(E3)
+rm(E3)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+filenames=list.files()
+new=T
+xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}
+i
+filenames[i]
+xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}
+i

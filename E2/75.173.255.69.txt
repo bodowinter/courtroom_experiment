@@ -1,0 +1,1 @@
+condition: [L,D,P]	plaintiff	confidence: 9; defendant bias; no jury experience;5344;

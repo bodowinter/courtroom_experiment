@@ -1,0 +1,1 @@
+prosecutor;strong;defendant_close;defendant_choice_up;picked_prosecutor;6;prosecutor_bias;yes_jury

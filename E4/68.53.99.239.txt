@@ -1,0 +1,1 @@
+condition: [D,P,J]	defandent	confidence: 2; defendant bias; no jury experience; 57210;

@@ -1,0 +1,1 @@
+condition: [J,P,D]	defandent	confidence: 7; defendant bias; yes jury experience; 7836;

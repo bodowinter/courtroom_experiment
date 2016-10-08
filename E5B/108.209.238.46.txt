@@ -1,0 +1,1 @@
+prosecutor;weak;prosecutor_close;picked_plaintiff;2;prosecutor_bias;yes_jury

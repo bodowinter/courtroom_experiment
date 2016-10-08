@@ -1,0 +1,1 @@
+defendant_close;picked_defendant;3; no bias;yes jury experience

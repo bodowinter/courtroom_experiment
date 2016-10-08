@@ -1,0 +1,1 @@
+prosecutor;strong;defendant_close;picked_plaintiff;7;no_bias;no_jury

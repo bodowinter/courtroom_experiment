@@ -1,0 +1,1 @@
+defendant;weak;defendant_close;picked_defendant;3;defendant_bias;no_jury

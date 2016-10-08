@@ -1,0 +1,1 @@
+condition: [P,D,J]	defendant	confidence: 9; defendant bias; no jury experience; 9933;

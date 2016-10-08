@@ -1,0 +1,2 @@
+condition: [J,D,P]	plaintiff	confidence: 1; no bias; no jury experience; 3338;
+condition: [D,P,J]	plaintiff	confidence: 5; prosecutor bias; no jury experience; 74410;

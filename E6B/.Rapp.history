@@ -1,0 +1,1635 @@
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.7073171*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.7073171*100+above_factor,labels="71%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.2926829*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.2926829*100+above_factor,labels="29%",font=2,cex=2)
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.7073171*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.7073171*100+above_factor,labels="71%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.2926829*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.2926829*100+above_factor,labels="29%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.3148148*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.3148148*100+above_factor,labels="31%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.6851852*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.6851852*100+above_factor,labels="69%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+E3.tab
+rowSum(E3.tab)
+rowSums(E3.tab)
+c(31,24)/55
+c(26,33)/59
+## Plot 2 (Experiment 3 here, Experiment 2 in presentation):#
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.5636364*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.5636364*100+above_factor,labels="56%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.4363636*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.4363636*100+above_factor,labels="44%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.440678*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.440678*100+above_factor,labels="44%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.559322*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.559322*100+above_factor,labels="55%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+E1.tab
+rowSums(E1.tab)
+c(34,20)/54
+c(12,32)/44
+## Plot 3 (Experiment 1 here, Experiment 3 in presentation):#
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.6296296*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.6296296*100+above_factor,labels="63%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.3703704*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.3703704*100+above_factor,labels="37%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.2727273*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.2727273*100+above_factor,labels="27%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.7272727*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.7272727*100+above_factor,labels="72%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+31.38+13.99+12.03+3.99+106.92
+31.38+13.99+12.03+3.99
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")
+x = read.table("87.158.18.114.txt")
+x
+x = read.table("87.158.18.114.txt",sep=";")
+x
+x = read.table("87.158.18.114.txt",sep=";")
+x
+x = read.table("87.158.18.114.txt",sep=";")
+x
+chisq.test(table(x$V3))
+chisq.test(table(x$V2))
+chisq.test(table(x$V1))
+x = read.table("87.158.18.114.txt",sep=";")
+chisq.test(table(x$V3))
+table(x$V3)
+4*2
+120/8
+140*0.25
+140/8
+160/8
+160*0.25
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/E4_data")
+filenames = list.files()#
+E4 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i],sep=";"))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+E4
+E4[,c("V3","V4")]
+table(E4[,c("V3","V4")])
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 1 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/E4_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E4 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i],sep=";"))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/E4_data")
+list.files()
+filenames = list.files()
+filenames
+E4 = c()#
+exclude = c()
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i],sep=";"))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+i
+filenames = list.files()#
+E4 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i],sep=";"))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+E4
+colnames(E4) = c("evidence_framing","evidence_strength","spatial_position","choice","confidence","bias","experience")
+colnames(E4)
+head(E4)
+write.table(E4,"/Users/teeniematlock/Desktop/research/josh_jury_courtroom/E4_fulldata.csv",sep=",",row.names=F)
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## How many?#
+#
+nrow(E1)#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)
+head(E4)
+(E4.tab <- table(E3$spatial_position,E3$choice))
+(E4.tab <- table(E4$spatial_position,E4$choice))
+E4.tab
+chisq.test(E4.tab)
+E4$hypothesis_match = rep("match",nrow(E4))
+E4[E4$spatial_position == "defendant_close" & E4$choice == "picked_plaintiff",]$hypothesis_match = "mismatch"#
+E4[E4$spatial_position == "prosecutor_close" & E4$choice == "picked_defendant",]$hypothesis_match = "mismatch"
+table(E4$hypothesis_match)
+chisq.test(table(E4$hypothesis_match))
+chisq.test(table(E3$hypothesis_match))
+## Bodo Winter#
+## March 26, 2014; changed April 27, 2014 to include E3#
+## Changed August 15 to include E4#
+## Josh's Courtroom E1-E3 analysis#
+#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/")#
+E1 = read.csv("E1_fulldata.csv")#
+E2 = read.csv("E2_fulldata.csv")#
+E3 = read.csv("E3_fulldata.csv")#
+E4 = read.csv("E4_fulldata.csv")#
+#
+## Descriptions of experiments:#
+#
+# E1: Flat 2D surface view, no context#
+# E2: 3D view, no context#
+# E3: 3D view with weird tables and same font size to get rid of size confound#
+# E4: Flat 2D surface view, with context: defendant/prosecutor has strong/weak evidence#
+#
+## How many?#
+#
+nrow(E1)	#
+nrow(E2)#
+nrow(E3)#
+nrow(E4)#
+#
+## Summary tables:#
+#
+(E1.tab <- table(E1$defendant_distance,E1$choice))#
+(E2.tab <- table(E2$defendant_position,E2$choice))#
+(E3.tab <- table(E3$defendant_position,E3$choice))#
+(E4.tab <- table(E4$spatial_position,E4$choice))#
+#
+## Simple summary table analysis, disregarding jury orientation (left/right):#
+#
+chisq.test(E1.tab)#
+chisq.test(E2.tab)#
+chisq.test(E3.tab)#
+chisq.test(E4.tab)#
+#
+## Create a "matched as hypothesized" variable:#
+#
+E1$hypothesis_match = rep("match",nrow(E1))#
+E2$hypothesis_match = rep("match",nrow(E2))#
+E3$hypothesis_match = rep("match",nrow(E3))#
+E4$hypothesis_match = rep("match",nrow(E4))#
+E1[E1$defendant_distance == "far" & E1$choice == "defendant",]$hypothesis_match = "mismatch"#
+E1[E1$defendant_distance == "close" & E1$choice == "plaintiff",]$hypothesis_match = "mismatch"#
+E2[E2$defendant_position == "far" & E2$choice == "defendant",]$hypothesis_match = "mismatch"#
+E2[E2$defendant_position == "close" & E2$choice == "plaintiff",]$hypothesis_match = "mismatch"#
+E3[E3$defendant_position == "far" & E3$choice == "defendant",]$hypothesis_match = "mismatch"#
+E3[E3$defendant_position == "close" & E3$choice == "plaintiff",]$hypothesis_match = "mismatch"#
+E4[E4$spatial_position == "defendant_close" & E4$choice == "picked_plaintiff",]$hypothesis_match = "mismatch"#
+E4[E4$spatial_position == "prosecutor_close" & E4$choice == "picked_defendant",]$hypothesis_match = "mismatch"
+chisq.test(table(E3$hypothesis_match))
+head(E4)
+table(E4$evidence_framing,E4$evidence_strength,E4$hypothesis_match)
+table(E4$hypothesis_match,E4$evidence_framing,E4$evidence_strength)
+head(E4$choice)
+head(E4)
+E4_mdl = glm(choice ~ spatial_position + evidence_framing + evidence_strength,E4)
+E4_mdl = glm(choice ~ spatial_position + evidence_framing + evidence_strength,E4,family="binomial")
+summary(E4_mdl)
+E4$choice = relevel(E4$choice,ref="picked_defendant")
+E4$evidence_framing
+E4$evidence_framing = relevel(E4$choice,ref="defendant")
+E4$evidence_framing = relevel(E4$evidence_framing,ref="defendant")
+head(E4)
+E4$choice = relevel(E4$choice,ref="picked_defendant")#
+E4$evidence_framing = relevel(E4$evidence_framing,ref="defendant")
+E4_mdl = glm(choice ~ spatial_position + evidence_framing + evidence_strength,E4,family="binomial")#
+summary(E4_mdl)
+E4$choice = relevel(E4$choice,ref="picked_plaintiff")#
+E4$evidence_framing = relevel(E4$evidence_framing,ref="prosecutor")#
+#
+## Do a logistic regression analysis for E4:#
+#
+E4_mdl = glm(choice ~ spatial_position + evidence_framing + evidence_strength,E4,family="binomial")#
+summary(E4_mdl)
+head(E4$choice)
+E4_mdl = glm(choice ~ spatial_position*evidence_framing + evidence_strength,E4,family="binomial")#
+summary(E4_mdl)
+E4_mdl = glm(choice ~ spatial_position + evidence_framing*evidence_strength,E4,family="binomial")#
+summary(E4_mdl)
+head(E1)
+summary(E1_mdl <- glm(choice ~ jury_position + defendant_distance,E4,family="binomial"))
+summary(E1_mdl <- glm(choice ~ jury_position + defendant_distance,E1,family="binomial"))
+E1$choice
+summary(E1_mdl <- glm(choice ~ jury_position + defendant_distance + confidence,E1,family="binomial"))
+summary(E2_mdl <- glm(choice ~ jury_position + defendant_distance + confidence,E2,family="binomial"))
+head(E2)
+summary(E2_mdl <- glm(choice ~ room_orientation + defendant_distance + confidence,E2,family="binomial"))
+summary(E2_mdl <- glm(choice ~ room_orientation + defendant_position + confidence,E2,family="binomial"))
+head(E3)
+summary(E3_mdl <- glm(choice ~ jury_position + defendant_position + confidence,E2,family="binomial"))
+summary(E3_mdl <- glm(choice ~ jury_position + defendant_position + confidence,E3,family="binomial"))
+summary(E4_mdl <- glm(choice ~ spatial_position + evidence_framing*evidence_strength + confidence,E3,family="binomial"))
+summary(E4_mdl <- glm(choice ~ spatial_position + evidence_framing*evidence_strength + confidence,E4,family="binomial"))
+head(E4)
+table(E4$spatial_position,E4$choice)
+(28+34)
+c(28,34)/62
+c(38,22)/(38+22)
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.5483871*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.5483871*100+above_factor,labels="63%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.4516129*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.4516129*100+above_factor,labels="37%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.3666667*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.3666667*100+above_factor,labels="27%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.6333333*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.6333333*100+above_factor,labels="72%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+nrow(E4)
+head(E4)
+table(E4$spatial_position,E4$choice,E4$evidence_framing)
+table(E4$spatial_position,E4$choice,E4$evidence_strength)
+table(E4$spatial_position,E4$choice,E4$evidence_framing)
+c(22,10)/(22+10)
+c(29,4)/(29+4)
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.3125*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.3125*100+above_factor,labels="63%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.6875*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.6875*100+above_factor,labels="37%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.1212121*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.1212121*100+above_factor,labels="27%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.8787879*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.8787879*100+above_factor,labels="72%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+## Plot 4 (Experiment 4 here, Experiment 4 in presentation): DEFENDANT FRAMING#
+table(E4$spatial_position,E4$choice,E4$evidence_framing)
+c(6,24)/(6+24)
+c(9,18)/(9+18)
+table(E4$spatial_position,E4$choice,E4$evidence_framing)#
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.8*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.8*100+above_factor,labels="63%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.2*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.2*100+above_factor,labels="37%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.6666667*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.6666667*100+above_factor,labels="27%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.3333333*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.3333333*100+above_factor,labels="72%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+table(E4$spatial_position,E4$choice,E4$evidence_framing)#
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.8*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.8*100+above_factor,labels="80%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.2*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.2*100+above_factor,labels="20%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.6666667*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.6666667*100+above_factor,labels="67%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.3333333*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.3333333*100+above_factor,labels="33%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+## Plot 4 (Experiment 4 here, Experiment 4 in presentation): PROSECUTOR FRAMING#
+table(E4$spatial_position,E4$choice,E4$evidence_framing)#
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.3125*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.3125*100+above_factor,labels="31%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.6875*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.6875*100+above_factor,labels="69%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.1212121*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.1212121*100+above_factor,labels="12%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.8787879*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.8787879*100+above_factor,labels="88%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+gap_between = 0.1#
+big_gap = 0.5#
+above_factor = 7#
+quartz("",8,6);par(mai=c(1,2,1,0.5))#
+plot(1,1,type="n",bty="n",xlim=c(0,7),ylim=c(0,100),xaxs="i",yaxs="i",xaxt="n",yaxt="n",xlab="",ylab="")#
+axis(side=2,seq(0,100,25),labels=paste0(seq(0,100,25),"%"),lwd=4,lwd.ticks=4,las=2,font=2,cex.axis=2)#
+mtext(side=2,line=6,text="Percent chosen",cex=2.5,font=2)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)#
+axis(side=1,at=c(2,5+big_gap),labels=c("Defendant close","Defendant far"),cex.axis=1.5,font=2,tick=F)#
+rect(1-gap_between,0,2-gap_between,0.5483871*100,lwd=2,col="wheat3")#
+text(x=mean(c(1-gap_between,2-gap_between)),y=0.5483871*100+above_factor,labels="55%",font=2,cex=2)#
+rect(2+gap_between,0,3+gap_between,0.4516129*100,lwd=2,col="orange3")#
+text(x=mean(c(2+gap_between,3+gap_between)),y=0.4516129*100+above_factor,labels="45%",font=2,cex=2)#
+rect(4-gap_between+big_gap,0,5-gap_between+big_gap,0.3666667*100,lwd=2,col="wheat3")#
+text(x=mean(c(4-gap_between+big_gap,5-gap_between+big_gap)),y=0.3666667*100+above_factor,labels="37%",font=2,cex=2)#
+rect(5+gap_between+big_gap,0,6+gap_between+big_gap,0.6333333*100,lwd=2,col="orange3")#
+text(x=mean(c(5+gap_between+big_gap,6+gap_between+big_gap)),y=0.6333333*100+above_factor,labels="63%",font=2,cex=2,xpd=NA)#
+segments(x0=0,x1=7,y0=0,lwd=4,xpd=NA)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		xdata = rbind(xdata,read.table(filenames[i]))}#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		xdata = rbind(xdata,read.table(filenames[i]))}#
+	}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+E1
+list.files()
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		xdata = rbind(xdata,read.table(filenames[i]))}#
+	}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+E1
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		xdata = rbind(xdata,read.table(filenames[i]))#
+		print(i)}#
+	}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+			exclude = c(exclude,filenames[i])#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+head(E1)
+E1
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		}#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+xdata
+E1
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		}#
+	return(xdata)#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+E1
+1:length(filenames)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		}#
+	return(xdata)#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(list.files())
+list.files()
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		}#
+	return(xdata)#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(filenames=list.files())
+head(E1)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	print(length(filenames))#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+		if(nrow(read.table(filenames[i]))==1){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}else{#
+			warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		}#
+	return(xdata)#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(filenames=list.files())
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}#
+	return(xdata)#
+	}}#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(filenames=list.files())
+E1
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}#
+	return(xdata)#
+	}}
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}#
+	return(xdata)#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+#
+E1 = load_files(filenames=list.files())
+E1
+head(E1)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())
+E2
+filenames = list.files()
+filenames = list.files()#
+E2 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E2 = rbind(E2,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			xdata = rbind(xdata,read.table(filenames[i]))#
+			print(i)#
+		}#
+	return(xdata)#
+	}#
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())
+nrow(E2)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")
+filenames = list.files()#
+E4 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i]))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())
+E4
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())
+E1
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())
+E2
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files())
+######## <<<<<<<<<<<<<<<<<<<<< EXPERIMENT 4 PREPROCESSING#
+setwd("/Users/teeniematlock/Desktop/research/josh_jury_courtroom/raw_data/E4_data")#
+#
+## Load in data:#
+#
+filenames = list.files()#
+E4 = c()#
+exclude = c()#
+for(i in 1:length(filenames)){#
+	if(nrow(read.table(filenames[i]))==1){#
+		E4 = rbind(E4,read.table(filenames[i],sep=";"))#
+	}else{#
+		warning(paste("File",filenames[i],"contains more than one row.", sep=" "))#
+		exclude = c(exclude,filenames[i])#
+		}#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files())
+E3
+i
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			print(i)#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			print(filenames[i])#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)
+head(E3)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)
+?list.files
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)
+E1 = load_files(list.files("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1"))
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)
+head(E6A)
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)
+head(E6B)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)
+head(E1)
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")
+E1 = E1[,-c(1,4,7,9,10)]
+E1
+head(E1)
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10,11)]
+E1
+E1 = E1[,-c(1,4,7,9,10,11)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience")
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10,11)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience")
+head(E1)
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))
+head(E1)
+## Get rid of spelling error ("defendant" vs. "defandent")#
+#
+E1$choice = as.character(E1$choice)#
+E1[E1$choice == "defandent",]$choice = "defendant"#
+E1$choice = as.factor(E1$choice)
+E1$choice
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10,11)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Get rid of spelling error ("defendant" vs. "defandent")
+E1$choice
+## Code whether defendant is far or close#
+#
+E1$defendant_distance = "close"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"
+## Code whether defendant is far or close#
+#
+E1$distance = "close"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"
+head(E1)
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10,11)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Code whether defendant is far or close#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$defendant_distance = "far"
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10#
+#
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")#
+#
+## Get rid of unwanted columns and rename:#
+#
+E1 = E1[,-c(1,4,7,9,10,11)]#
+colnames(E1) = c("condition","choice","confidence","bias","experience")#
+#
+## Get rid of semicolons:#
+#
+E1 = as.data.frame(apply(E1,2,FUN=function(x)gsub(";","",x)))#
+#
+## Code whether defendant is far or close#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"
+head(E1)
+## Code whether jury is left or right:#
+#
+E1$room_setup = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$distance = "jury_right"
+head(E1)
+## Code whether defendant is far or close:#
+#
+E1$distance = "near"#
+E1[E1$condition == "[J,P,D]" | E1$condition == "[D,P,J]",]$distance = "far"#
+#
+## Code whether jury is left or right:#
+#
+E1$room_setup = "jury_left"#
+E1[E1$condition == "[P,D,J]" | E1$condition == "[D,P,J]",]$room_setup = "jury_right"
+head(E1)
+tail(E1)
+head(E1)
+head(E2)
+E2$V6 = paste(E2$V6,E2$V7,sep=" ")#
+E2$V8 = paste(E2$V8,E2$V9,E2$V10,sep=" ")
+head(E2)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Merge column 6 and 7 (they belong together), as well as 8, 9 and 10
+head(E1)
+head(E2)
+E1$V6 = paste(E1$V6,E1$V7,sep=" ")#
+E1$V8 = paste(E1$V8,E1$V9,E1$V10,sep=" ")
+head(E1)
+head(E2)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns
+head(E1)
+E1$V8
+head(E1)
+head(E2)
+head(E3)
+head(E4)
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)
+## Bodo Winter#
+## August 23, 2014#
+## Preprocessing of Courtroom Experiment#
+#
+#########################################################################
+######################## Define functions#
+#########################################################################
+#
+## Function for batch-loading in .txt files from web experiments:#
+#
+load_files = function(filenames,new=F){#
+	xdata = c()#
+	for(i in 1:length(filenames)){#
+			if(!new){#
+				xdata = rbind(xdata,read.table(filenames[i]))#
+				}#
+			if(new){#
+				xdata = rbind(xdata,read.table(filenames[i],sep=";"))#
+				}#
+		}#
+	return(xdata)#
+	}#
+#########################################################################
+######################## Load in data#
+#########################################################################
+#
+## Load in Experiment 1:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E1")#
+E1 = load_files(filenames=list.files())#
+#
+## Load in Experiment 2:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E2/")#
+E2 = load_files(filenames=list.files())#
+#
+## Load in Experiment 3:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E3/")#
+E3 = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 4:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E4/")#
+E4 = load_files(filenames=list.files())#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5A/")#
+E5A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E5B/")#
+E5B = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5A:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6A/")#
+E6A = load_files(filenames=list.files(),new=T)#
+#
+## Load in Experiment 5B:#
+#
+setwd("/Volumes/Macintosh HD/Users/teeniematlock/Desktop/research/josh_jury_courtroom/analysis/data/E6B/")#
+E6B = load_files(filenames=list.files(),new=T)#
+#########################################################################
+######################## Delete unwanted columns#
+#########################################################################
+#
+## Define unwanted columns:#
+#
+E1_unwanted = c(1,4,7,9,10,11)#
+E2_unwanted = c(1,4,7,9,10)#
+E4_unwanted = c(1,4,7,9,10,11)#
+#
+## Delete unwanted columns:#
+#
+E1 = E1[,-E1_unwanted]#
+E2 = E2[,-E2_unwanted]#
+E4 = E4[,-E4_unwanted]
+head(E1)
+head(E2)
+head(E4)

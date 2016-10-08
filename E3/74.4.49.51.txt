@@ -1,0 +1,1 @@
+defendant_close;picked_prosecutor;3; prosecutor bias;no jury experience
